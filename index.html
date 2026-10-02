@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TrueRep — AI Workout Form Coach & Nutrition Tracker | Official Website</title>
+  <meta name="description" content="TrueRep is an edge-computed, privacy-first mobile app with real-time 33-point MediaPipe pose vision, deterministic rep counting, voice coaching, and smart nutrition scanning. 100% offline.">
+  <meta name="keywords" content="TrueRep, AI workout coach, computer vision fitness, rep counter, MediaPipe pose, calisthenics tracker, nutrition scanner, privacy fitness app">
+  
+  <!-- Open Graph / Social Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="TrueRep — AI Workout Form Coach & Nutrition Tracker">
+  <meta property="og:description" content="Edge-computed 33-point skeletal pose estimation, deterministic anti-cheat rep counting, and smart nutrition scanning. Zero cloud video transit.">
+  <meta property="og:image" content="assets/hero_poster.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TrueRep — AI Workout Form Coach & Nutrition Tracker">
+  <meta name="twitter:description" content="100% on-device AI computer vision rep counting, live voice coaching, and macro scanner. Free on Android.">
+  <meta name="twitter:image" content="assets/hero_poster.jpg">
+
+  <link rel="icon" type="image/png" href="assets/icon_flex_512.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="brand-link" id="brand-home-link">
+        <img src="assets/icon_flex_512.png" alt="TrueRep Flex Emblem" class="brand-icon">
+        <span class="brand-name">TrueRep</span>
+        <span class="badge-tag">v1.0.0</span>
+      </a>
+
+      <nav class="nav-menu" id="nav-menu">
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#vision" class="nav-link">Pose Vision</a>
+        <a href="#nutrition" class="nav-link">Nutrition</a>
+        <a href="#gamification" class="nav-link">Streaks</a>
+        <a href="#privacy" class="nav-link">Privacy</a>
+        <a href="#download" class="nav-link nav-btn-outline">Install APK</a>
+      </nav>
+
+      <div class="nav-cta-wrap">
+        <button class="btn btn-primary btn-sm" id="nav-download-btn" onclick="downloadLatestApk()">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>Download APK</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero">
+    <div class="ambient-glow glow-blue"></div>
+    <div class="ambient-glow glow-lime"></div>
+    
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="status-pill" id="hero-status-pill">
+          <span class="status-dot"></span>
+          <span class="status-text">Production Ready · Target SDK 35 (Android 15)</span>
+        </div>
+
+        <h1 class="hero-title">
+          AI Workout Form Coach <br>
+          <span class="gradient-text">&amp; Nutrition Tracker</span>
+        </h1>
+
+        <p class="hero-subtext">
+          TrueRep turns your phone into an uncompromising biomechanics lab. Real-time <strong>33-point MediaPipe pose vision</strong> counts your reps, enforces full parallel depth with deterministic anti-cheat guards, and coaches your posture out loud—<strong>100% on-device with zero cloud video upload</strong>.
+        </p>
+
+        <!-- Download Buttons -->
+        <div class="hero-actions">
+          <button class="btn btn-primary btn-lg" id="hero-download-btn" onclick="downloadLatestApk()">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <div class="btn-text-wrap">
+              <span class="btn-label">Download Latest APK</span>
+              <span class="btn-subtext" id="apk-release-tag">Release v1.0.0 · ARM64 (Direct)</span>
+            </div>
+          </button>
+
+          <a href="https://github.com/Aryann-gd/TrueRep" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-lg" id="github-repo-btn">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+            <span>GitHub Repository</span>
+          </a>
+        </div>
+
+        <!-- Metric Badges -->
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number">33</span>
+            <span class="stat-label">3D Joints Tracked</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number">30 FPS</span>
+            <span class="stat-label">On-Device Inference</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Offline &amp; Private</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual Phone HUD Mockup -->
+      <div class="hero-visual">
+        <div class="device-mockup">
+          <div class="screen-frame">
+            <div class="hud-top">
+              <span class="live-pill"><span class="dot-red"></span> LIVE INFERENCE · 30 FPS</span>
+              <span class="battery-tag">EXERCISE: PUSH-UPS</span>
+            </div>
+
+            <!-- Dynamic Demo Screen -->
+            <div class="camera-simulation">
+              <img src="assets/pushups.gif" alt="TrueRep Live Pushup Pose Demonstration" class="exercise-sim-img">
+              <svg class="skeletal-svg-overlay" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <line x1="30" y1="45" x2="42" y2="46" stroke="#B4EF3C" stroke-width="2"/>
+                <line x1="42" y1="46" x2="50" y2="55" stroke="#B4EF3C" stroke-width="2"/>
+                <line x1="50" y1="55" x2="52" y2="70" stroke="#B4EF3C" stroke-width="2"/>
+                <line x1="42" y1="46" x2="68" y2="48" stroke="#B4EF3C" stroke-width="2"/>
+                <line x1="68" y1="48" x2="82" y2="52" stroke="#B4EF3C" stroke-width="2"/>
+                <line x1="82" y1="52" x2="94" y2="58" stroke="#B4EF3C" stroke-width="2"/>
+                
+                <circle cx="30" cy="45" r="2.5" fill="#FFFFFF" stroke="#B4EF3C" stroke-width="1.5"/>
+                <circle cx="42" cy="46" r="2.5" fill="#FFFFFF" stroke="#B4EF3C" stroke-width="1.5"/>
+                <circle cx="50" cy="55" r="2.5" fill="#FFFFFF" stroke="#B4EF3C" stroke-width="1.5"/>
+                <circle cx="52" cy="70" r="2.5" fill="#FFFFFF" stroke="#B4EF3C" stroke-width="1.5"/>
+                <circle cx="68" cy="48" r="2.5" fill="#FFFFFF" stroke="#B4EF3C" stroke-width="1.5"/>
+                <circle cx="82" cy="52" r="2.5" fill="#FFFFFF" stroke="#B4EF3C" stroke-width="1.5"/>
+                <circle cx="94" cy="58" r="2.5" fill="#FFFFFF" stroke="#B4EF3C" stroke-width="1.5"/>
+              </svg>
+
+              <!-- Floating Angle Telemetry -->
+              <div class="floating-angle-badge" id="hud-angle-badge">
+                <span class="angle-val">86°</span>
+                <span class="angle-label">ELBOW DEPTH (OK)</span>
+              </div>
+
+              <!-- Depth Verified Toast -->
+              <div class="hud-bottom-toast">
+                <span class="check-icon">✓</span>
+                <span>FULL RANGE OF MOTION VERIFIED</span>
+              </div>
+            </div>
+
+            <!-- Rep & Telemetry Stack -->
+            <div class="hud-telemetry-panel">
+              <div class="rep-counter-display">
+                <div class="rep-big-num">12</div>
+                <div class="rep-meta">
+                  <span class="rep-unit">REPS</span>
+                  <span class="rep-target">TARGET: 15</span>
+                </div>
+              </div>
+              <div class="hud-stats-strip">
+                <div class="hud-stat-chip">
+                  <span class="chip-label">SPINE</span>
+                  <span class="chip-val green">178° STRICT</span>
+                </div>
+                <div class="hud-stat-chip">
+                  <span class="chip-label">TEMPO</span>
+                  <span class="chip-val lime">2.1s CADENCE</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Complete Features Grid -->
+  <section class="features-section" id="features">
+    <div class="section-header">
+      <span class="section-tag">ENGINEERED FOR SERIOUS ATHLETES</span>
+      <h2 class="section-title">Everything Built In. Nothing Sent to the Cloud.</h2>
+      <p class="section-desc">From joint angle kinematics to instant barcode macro scans, TrueRep delivers an uncompromised offline experience.</p>
+    </div>
+
+    <div class="features-grid">
+      
+      <!-- Feature 1: Computer Vision -->
+      <div class="feature-card" id="vision">
+        <div class="feature-icon-wrap icon-lime">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+        </div>
+        <h3 class="feature-title">33-Point MediaPipe Pose Engine</h3>
+        <p class="feature-text">
+          Tracks 33 spatial landmarks at 30 FPS using hardware-accelerated CameraX. Vector dot-products compute precise biomechanical angles across shoulders, elbows, hips, knees, and ankles.
+        </p>
+        <ul class="feature-checklist">
+          <li>Dynamic EMA landmark smoothing eliminates jitter</li>
+          <li>Accurate elbow &amp; knee joint angle degrees</li>
+          <li>Real-time spine alignment posture monitoring</li>
+        </ul>
+      </div>
+
+      <!-- Feature 2: Deterministic Anti-Cheat FSM -->
+      <div class="feature-card">
+        <div class="feature-icon-wrap icon-blue">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+        </div>
+        <h3 class="feature-title">Deterministic 3-State FSM</h3>
+        <p class="feature-text">
+          Eliminates false counts with hysteresis guards. A repetition only increments when you progress through <code>START</code> (&gt;160°), sustain <code>INFLECTION</code> (&le;90° for &ge;100ms), and achieve full <code>COMPLETION</code>.
+        </p>
+        <ul class="feature-checklist">
+          <li>Rejects half-reps and spastic bounces</li>
+          <li>Hysteresis buffers prevent threshold fluttering</li>
+          <li>Full cadence and eccentric/concentric tempo tracking</li>
+        </ul>
+      </div>
+
+      <!-- Feature 3: Voice Coach -->
+      <div class="feature-card">
+        <div class="feature-icon-wrap icon-peach">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          </svg>
+        </div>
+        <h3 class="feature-title">Real-Time Spoken Voice Coach</h3>
+        <p class="feature-text">
+          Workout without looking at the screen. A prioritized Text-to-Speech audio queue delivers immediate spoken corrections like <em>"Chest to floor"</em> or <em>"Keep your hips level"</em> before injury happens.
+        </p>
+        <ul class="feature-checklist">
+          <li>Priority 1 safety overrides non-critical messages</li>
+          <li>Anti-spam throttling suppresses repeat cues</li>
+          <li>Audio ducking blends coaching smoothly with workout music</li>
+        </ul>
+      </div>
+
+      <!-- Feature 4: Exercise Library -->
+      <div class="feature-card">
+        <div class="feature-icon-wrap icon-cyan">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+          </svg>
+        </div>
+        <h3 class="feature-title">Calisthenics Movement Library</h3>
+        <p class="feature-text">
+          Equipped with pre-configured movement profiles for Push-ups, Squats, Planks, Lunges, Bicep Curls, and Glute Bridges. Includes animated form demos and kinematic target envelopes.
+        </p>
+        <ul class="feature-checklist">
+          <li>Pre-calibrated angle envelopes per movement</li>
+          <li>Isometric hold cycle engine for planks &amp; static holds</li>
+          <li>Offline JSON movement database</li>
+        </ul>
+      </div>
+
+      <!-- Feature 5: Smart Nutrition Scanner -->
+      <div class="feature-card" id="nutrition">
+        <div class="feature-icon-wrap icon-lime">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 3h4v18H3zM9 3h2v18H9zM15 3h1v18h-1zM18 3h3v18h-3z"></path>
+          </svg>
+        </div>
+        <h3 class="feature-title">Smart Nutrition &amp; Barcode Scanner</h3>
+        <p class="feature-text">
+          Point your camera at food packages or dishes. Instant barcode scanning matches against the Open Food Facts database to log calories, protein, carbohydrates, and fats in seconds.
+        </p>
+        <ul class="feature-checklist">
+          <li>Instant offline food cache &amp; barcode recognition</li>
+          <li>Macro goal breakdown (Protein / Carbs / Fats)</li>
+          <li>Zero manual typing or guesswork</li>
+        </ul>
+      </div>
+
+      <!-- Feature 6: Streaks, Shields & Shop -->
+      <div class="feature-card" id="gamification">
+        <div class="feature-icon-wrap icon-orange">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path>
+          </svg>
+        </div>
+        <h3 class="feature-title">Streak Shields &amp; Gamification</h3>
+        <p class="feature-text">
+          Build unbreakable fitness momentum. Earn XP for every valid repetition, level up your athlete tier, unlock cosmetic avatar profile frames, and arm Streak Freeze Shields for rest days.
+        </p>
+        <ul class="feature-checklist">
+          <li>Streak Freeze Shields protect planned rest days</li>
+          <li>Opt-in rewarded ad streak repair mechanics</li>
+          <li>Cosmetic frame shop with in-app coin balances</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Privacy & Architecture Section -->
+  <section class="privacy-section" id="privacy">
+    <div class="privacy-container">
+      <div class="privacy-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="shield-icon">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        </svg>
+        <span>PRIVACY-FIRST ENGINEERING</span>
+      </div>
+
+      <h2 class="privacy-title">Your Reps Stay on Your Phone.<br>No Cloud Video. No Exceptions.</h2>
+      <p class="privacy-desc">
+        We believe your living room, workout garage, and biometric metrics belong to you. TrueRep processes camera frames exclusively in volatile RAM and discards them immediately.
+      </p>
+
+      <div class="privacy-pillars">
+        <div class="pillar-card">
+          <h4 class="pillar-heading">Zero Cloud Streaming</h4>
+          <p class="pillar-text">Camera frames never leave device memory. No video chunks or coordinates are transmitted to remote servers.</p>
+        </div>
+        <div class="pillar-card">
+          <h4 class="pillar-heading">No Mandatory Accounts</h4>
+          <p class="pillar-text">Launch the app and start training immediately. No forced email registrations, passwords, or social tracking logins.</p>
+        </div>
+        <div class="pillar-card">
+          <h4 class="pillar-heading">Android Health Connect</h4>
+          <p class="pillar-text">Sync your daily steps, body weight, and workout calories directly with Google's on-device Health Connect platform.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download Center Section -->
+  <section class="download-section" id="download">
+    <div class="download-container">
+      <div class="download-card">
+        <img src="assets/mascot_transparent_512.png" alt="TrueRep Mascot" class="download-mascot">
+        
+        <h2 class="download-title">Get TrueRep for Android</h2>
+        <p class="download-sub">
+          Download the latest production release APK directly from GitHub. Target SDK 35 (Android 15) with ARM64-v8a hardware acceleration.
+        </p>
+
+        <div class="download-cta-box">
+          <button class="btn btn-primary btn-xl" id="direct-download-btn" onclick="downloadLatestApk()">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <div class="btn-text-wrap">
+              <span class="btn-label-lg">Download TrueRep APK (Latest)</span>
+              <span class="btn-meta-lg" id="apk-details-meta">v1.0.0 · Free &amp; Open · ~45 MB</span>
+            </div>
+          </button>
+
+          <!-- Automatic download fallback link -->
+          <p class="download-fallback-text">
+            If the download does not start automatically, <a href="https://github.com/Aryann-gd/TrueRep/releases/latest/download/TrueRep-arm64-release.apk" id="manual-apk-link" class="lime-link">click here to download directly</a>.
+          </p>
+        </div>
+
+        <!-- Installation Instructions -->
+        <div class="install-steps">
+          <h4 class="steps-heading">3-Step Sideloading Instructions:</h4>
+          <div class="steps-grid">
+            <div class="step-card">
+              <span class="step-num">1</span>
+              <span class="step-title">Download APK</span>
+              <span class="step-desc">Tap the download button above to get the latest <code>app-release.apk</code>.</span>
+            </div>
+            <div class="step-card">
+              <span class="step-num">2</span>
+              <span class="step-title">Allow Install</span>
+              <span class="step-desc">When prompted by Chrome/Files, select <em>"Allow from this source"</em> in Android settings.</span>
+            </div>
+            <div class="step-card">
+              <span class="step-num">3</span>
+              <span class="step-title">Start Training</span>
+              <span class="step-desc">Open TrueRep, place your phone on the floor, and enjoy real-time form coaching!</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Download Toast Notification Modal -->
+  <div class="toast-modal" id="download-toast">
+    <div class="toast-content">
+      <div class="toast-spinner"></div>
+      <div>
+        <h4 class="toast-title" id="toast-title">Fetching Latest Release from GitHub...</h4>
+        <p class="toast-message" id="toast-message">Connecting to Aryann-gd/TrueRep releases...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand-col">
+        <div class="brand-link">
+          <img src="assets/icon_flex_512.png" alt="TrueRep" class="brand-icon">
+          <span class="brand-name">TrueRep</span>
+        </div>
+        <p class="footer-tagline">AI Workout Form Coach &amp; Nutrition Tracker. Built for athletes who want honest kinematic telemetry.</p>
+      </div>
+
+      <div class="footer-links-col">
+        <h5 class="footer-heading">Platform</h5>
+        <a href="#features">Features</a>
+        <a href="#vision">MediaPipe Pose</a>
+        <a href="#nutrition">Nutrition Scanner</a>
+        <a href="#download">Download APK</a>
+      </div>
+
+      <div class="footer-links-col">
+        <h5 class="footer-heading">Open Source &amp; Compliance</h5>
+        <a href="https://github.com/Aryann-gd/TrueRep" target="_blank" rel="noopener">GitHub Repository</a>
+        <a href="https://aryann-gd.github.io/truerep-privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a>
+        <a href="https://github.com/Aryann-gd/TrueRep/releases" target="_blank" rel="noopener">Release Notes</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 TrueRep. Open-source under BSD-3-Clause License. Target SDK 35 (Android 15 Ready).</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
