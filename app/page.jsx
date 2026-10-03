@@ -90,16 +90,11 @@ export default function HomePage() {
                 <div className="phone-screen">
                   <div className="phone-notch"></div>
                   
-                  {/* High-Impact AI Workout Telemetry Video */}
-                  <video 
-                    src="/assets/brag.mp4" 
-                    poster="/assets/brag.jpg" 
-                    autoPlay 
-                    loop 
-                    muted 
-                    playsInline 
+                  {/* High-Impact AI Workout Telemetry Graphic */}
+                  <img 
+                    src="/assets/ai_workout_vision.jpg" 
+                    alt="TrueRep Real-Time AI Workout Form Tracking" 
                     className="phone-camera-video" 
-                    aria-label="TrueRep Real-Time AI Workout Form Tracking" 
                   />
 
                   {/* Live HUD Overlay */}
