@@ -1,41 +1,92 @@
-# TrueRep — Official Showcase & Releases
+# TrueRep — Official Website & Privacy Policy (Unified Next.js)
 
-> **AI-Powered Real-Time Biomechanics & Nutrition Telemetry**
+> **AI-Powered Real-Time Biomechanics, Nutrition Telemetry & Privacy Hub**
 > 
-> High-performance Android application leveraging MediaPipe 3D joint landmark kinematics and on-device intelligent computer vision.
+> High-performance Next.js application unifying the official TrueRep landing page and Google Play Store compliant Privacy Policy into a single modern repository.
 
 [![Official Website](https://img.shields.io/badge/Website-Live-brightgreen)](https://aryann-gd.github.io/TrueRep/)
 [![Latest Release](https://img.shields.io/github/v/release/Aryann-gd/TrueRep?label=Latest%20APK&color=10B981)](https://github.com/Aryann-gd/TrueRep/releases/latest)
-[![Platform](https://img.shields.io/badge/Platform-Android%20(ARM64)-blue)](https://github.com/Aryann-gd/TrueRep)
+[![Platform](https://img.shields.io/badge/Platform-Android%20(SDK%2026--35)-blue)](https://github.com/Aryann-gd/TrueRep)
+[![Privacy](https://img.shields.io/badge/Privacy-100%25%20On--Device-10B981)](https://aryann-gd.github.io/TrueRep/privacy)
 [![License](https://img.shields.io/badge/License-BSD--3--Clause-orange)](LICENSE)
 
 ---
 
 ## ⚡ Overview
 
-TrueRep is an open-source, edge-AI workout form coach and nutrition tracking platform. This repository hosts:
-1. The **Official TrueRep Product Website** (hosted on GitHub Pages).
-2. The **Android APK & AAB Release Distribution Hub**, providing zero-friction sideloading and verified ARM64 binaries.
+This repository is the unified web home for **TrueRep**, containing:
+1. **The Product Landing Page (`/`)**: Liftoff-grade kinetic dark cyber-athletic design showcasing 3D joint telemetry, interactive 9-rank competitive ladder (Wood to Olympian), live biomechanical angle HUD simulator with Web Audio API chime, and dynamic GitHub Release APK installer.
+2. **The Full Privacy Policy Hub (`/privacy`)**: 100% on-device AI privacy architecture, real-time clause search filter, reading progress bar, Android Health Connect transparency table, permissions matrix, and GDPR/CCPA data deletion instructions.
 
 ---
 
 ## 🚀 Key Features
 
-- **33-Keypoint 3D Biomechanics**: Real-time kinematic tracking at 30+ FPS directly on your device.
-- **Smart Rep Counting & Form Feedback**: Precise angle calculations for Squats, Pushups, Deadlifts, Pull-ups, and more.
-- **Dynamic Angle Gauge**: Live HUD feedback warning of form breakdowns, knee valgus, and lumbar flexion.
-- **Instant Nutrition Lens**: On-device food recognition, macro breakdown, and automated logging.
-- **Privacy-First Architecture**: 100% on-device vision processing — zero cloud video transmission.
+- **Built with Next.js & React**: Fast App Router architecture with pre-rendered static pages for blazing performance and SEO.
+- **Unified Cyber-Athletic Theme**: Obsidian black canvas (`#090B0E`), hexagonal spotlight mesh, electric cyan (`#59B9F9`), and neon emerald (`#10B981`) accents.
+- **Universal Responsiveness**: Precision layouts engineered for 320px fold/mobile screens up to 4K ultra-wide monitors with a fluid mobile navigation drawer.
+- **Interactive Biomechanical Simulator**: Test squat knee flexion from 70° to 150° with real-time depth state detection and synthesized audio feedback.
+- **Dynamic Release Distribution**: Real-time asset inspection querying GitHub Releases API for Universal & ARM64 APK download links.
+- **Clause Search & Progress Bar**: Instant clause filtering across 13 privacy articles and a scroll-tracking reading bar.
+
+---
+
+## 🛠️ Getting Started
+
+### Prerequisites
+- Node.js 18.18+ or 20+ (tested on Node v24)
+- npm 10+
+
+### Installation & Development
+```bash
+# Install dependencies
+npm install
+
+# Run the local development server (http://localhost:3000)
+npm run dev
+
+# Create an optimized production build
+npm run build
+
+# Start the production server
+npm start
+```
+
+---
+
+## 📁 Project Architecture
+
+```
+TrueRep/
+├── app/
+│   ├── globals.css          # Unified kinetic design tokens & styles
+│   ├── layout.jsx           # Root layout with fonts & SEO metadata
+│   ├── page.jsx             # TrueRep landing page
+│   └── privacy/
+│       └── page.jsx         # Full Privacy Policy page with clause search
+├── components/
+│   ├── Navbar.jsx           # Sticky glassmorphic navbar with mobile drawer
+│   ├── Footer.jsx           # Unified platform & release links
+│   ├── RanksShowcase.jsx    # Interactive 9-rank competitive progression ladder
+│   ├── TelemetrySimulator.jsx # Biomechanical angle simulator with Web Audio API
+│   └── DownloadHub.jsx      # GitHub Release APK download cards & sideload guide
+├── public/
+│   └── assets/              # Badges, gifs, and rank crests
+├── jsconfig.json            # Path alias configuration
+├── next.config.js           # Next.js configuration
+└── package.json             # Scripts and dependencies
+```
 
 ---
 
 ## 📲 Direct APK Download
 
-Download the latest production release directly from [GitHub Releases](https://github.com/Aryann-gd/TrueRep/releases/latest):
-- [`TrueRep-arm64-release.apk`](https://github.com/Aryann-gd/TrueRep/releases/latest/download/TrueRep-arm64-release.apk) (Direct Android install)
+Download verified APK builds directly from [TrueRep GitHub Releases](https://github.com/Aryann-gd/TrueRep/releases/latest):
+- **Universal APK**: Supports 100% of Android devices (ARM64, ARMv7, x86_64).
+- **ARM64 APK**: Streamlined payload for modern 64-bit Android smartphones.
 
 ---
 
-## 🌐 Website Deployment
+## 📄 License & Attribution
 
-This repository is configured to serve the official landing page via **GitHub Pages** from the root of the `main` branch.
+Open-source under the BSD-3-Clause License. Built with MediaPipe on-device edge intelligence.

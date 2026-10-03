@@ -1,0 +1,29 @@
+{
+  "name": "truerep-website",
+  "version": "1.0.0",
+  "description": "> **AI-Powered Real-Time Biomechanics & Nutrition Telemetry** >  > High-performance Android application leveraging MediaPipe 3D joint landmark kinematics and on-device intelligent computer vision.",
+  "main": "app.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aryann-gd/TrueRep.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Aryann-gd/TrueRep/issues"
+  },
+  "homepage": "https://github.com/Aryann-gd/TrueRep#readme",
+  "dependencies": {
+    "lucide-react": "^1.50.0",
+    "next": "^14.2.35",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}
