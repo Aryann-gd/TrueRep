@@ -131,6 +131,13 @@ async function fetchLatestTrueRepRelease() {
  */
 function setupDownloadButtons() {
   const triggerDownload = (url, name) => {
+    // Defense-in-depth: Block any unauthorized .aab requests
+    if (!url || typeof url !== 'string' || url.toLowerCase().includes('.aab') || (name && name.toLowerCase().includes('.aab'))) {
+      console.error('[Security Violation] Unauthorized request for .aab bundle file was intercepted and blocked.');
+      showDownloadToast('Download Blocked', 'Security policy: .AAB bundle downloads are disabled. Please download the APK installer.');
+      return;
+    }
+
     showDownloadToast(`Downloading ${name}...`, `Fetching binary from Aryann-gd/TrueRep (${latestReleaseTag})`);
     playDepthChime(1046, 0.15); // High C chime
 

@@ -1,28 +1,29 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Download, CheckCircle, ExternalLink, Sparkles, Smartphone, Package } from 'lucide-react';
+import { Download, CheckCircle, ExternalLink, Sparkles, Smartphone, ShieldCheck } from 'lucide-react';
 
 const GITHUB_OWNER = 'Aryann-gd';
 const GITHUB_REPO = 'KINETX';
 
-const FALLBACK_APK_URL = `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases/download/latest-build/TrueRep-arm64-release.apk`;
-const FALLBACK_AAB_URL = `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases/download/latest-build/TrueRep-release.aab`;
+const FALLBACK_UNIVERSAL_URL = `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases/download/latest-build/TrueRep-universal-release.apk`;
+const FALLBACK_ARM64_URL = `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases/download/latest-build/TrueRep-arm64-release.apk`;
 
 export default function DownloadHub() {
   const [releaseTag, setReleaseTag] = useState('latest-build');
-  const [apkSize, setApkSize] = useState('~64.6 MB');
-  const [aabSize, setAabSize] = useState('~66.3 MB');
-  const [apkUrl, setApkUrl] = useState(FALLBACK_APK_URL);
-  const [aabUrl, setAabUrl] = useState(FALLBACK_AAB_URL);
-  const [apkName, setApkName] = useState('TrueRep-arm64-release.apk');
-  const [aabName, setAabName] = useState('TrueRep-release.aab');
+  const [universalSize, setUniversalSize] = useState('~68.4 MB');
+  const [arm64Size, setArm64Size] = useState('~64.6 MB');
+  const [universalUrl, setUniversalUrl] = useState(FALLBACK_UNIVERSAL_URL);
+  const [arm64Url, setArm64Url] = useState(FALLBACK_ARM64_URL);
+  const [universalName, setUniversalName] = useState('TrueRep-universal-release.apk');
+  const [arm64Name, setArm64Name] = useState('TrueRep-arm64-release.apk');
   const [toast, setToast] = useState({ visible: false, title: '', message: '' });
 
   useEffect(() => {
     async function fetchRelease() {
       try {
-        const res = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/releases/latest`);
+        // Query the sanitized internal release endpoint (purged of any .aab files)
+        const res = await fetch('/api/releases/latest');
         if (!res.ok) return;
         const data = await res.json();
         
@@ -31,20 +32,34 @@ export default function DownloadHub() {
         }
 
         if (Array.isArray(data.assets) && data.assets.length > 0) {
-          // Look for APK asset
-          const foundApk = data.assets.find(a => a.name.toLowerCase().endsWith('.apk'));
-          if (foundApk) {
-            setApkUrl(foundApk.browser_download_url);
-            setApkName(foundApk.name);
-            setApkSize((foundApk.size / (1024 * 1024)).toFixed(1) + ' MB');
+          // Find Universal APK
+          const foundUniversal = data.assets.find(a => 
+            a.name.toLowerCase().includes('universal') || 
+            a.name.toLowerCase() === 'truerep-release.apk' ||
+            a.name.toLowerCase() === 'app-release.apk'
+          );
+
+          if (foundUniversal) {
+            setUniversalUrl(foundUniversal.browser_download_url);
+            setUniversalName(foundUniversal.name);
+            setUniversalSize((foundUniversal.size / (1024 * 1024)).toFixed(1) + ' MB');
           }
 
-          // Look for AAB asset
-          const foundAab = data.assets.find(a => a.name.toLowerCase().endsWith('.aab'));
-          if (foundAab) {
-            setAabUrl(foundAab.browser_download_url);
-            setAabName(foundAab.name);
-            setAabSize((foundAab.size / (1024 * 1024)).toFixed(1) + ' MB');
+          // Find ARM64 APK
+          const foundArm64 = data.assets.find(a => a.name.toLowerCase().includes('arm64'));
+          if (foundArm64) {
+            setArm64Url(foundArm64.browser_download_url);
+            setArm64Name(foundArm64.name);
+            setArm64Size((foundArm64.size / (1024 * 1024)).toFixed(1) + ' MB');
+            if (!foundUniversal) {
+              setUniversalUrl(foundArm64.browser_download_url);
+              setUniversalName(foundArm64.name);
+              setUniversalSize((foundArm64.size / (1024 * 1024)).toFixed(1) + ' MB');
+            }
+          } else if (foundUniversal && !foundArm64) {
+            setArm64Url(foundUniversal.browser_download_url);
+            setArm64Name(foundUniversal.name);
+            setArm64Size((foundUniversal.size / (1024 * 1024)).toFixed(1) + ' MB');
           }
         }
       } catch (e) {
@@ -56,6 +71,17 @@ export default function DownloadHub() {
   }, []);
 
   const triggerDownload = (url, name) => {
+    // Defense-in-depth: Strict client-side rejection of any .aab request injected via DevTools
+    if (!url || typeof url !== 'string' || url.toLowerCase().includes('.aab') || (name && name.toLowerCase().includes('.aab'))) {
+      console.error('[Security Violation] Unauthorized attempt to download .aab file was blocked.');
+      setToast({
+        visible: true,
+        title: 'Download Blocked',
+        message: 'Security policy: .AAB bundle downloads are strictly disabled on this site.'
+      });
+      return;
+    }
+
     setToast({
       visible: true,
       title: `Starting download: ${name}`,
@@ -84,7 +110,7 @@ export default function DownloadHub() {
             Get TrueRep for Android
           </h2>
           <p style={{ fontSize: '1.05rem', color: 'var(--text-secondary)', maxWidth: '640px', margin: '0 auto' }}>
-            Free, zero trackers, zero account required. Download the latest verified builds directly from the official{' '}
+            Free, zero trackers, zero account required. Download the latest verified APK builds directly from the official{' '}
             <a 
               href={`https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases`} 
               target="_blank" 
@@ -103,43 +129,43 @@ export default function DownloadHub() {
             <div className="apk-option-card featured">
               <div>
                 <span className="apk-card-badge">RECOMMENDED · DIRECT INSTALL</span>
-                <h3 className="apk-option-title">Android APK</h3>
+                <h3 className="apk-option-title">Universal APK</h3>
                 <p className="apk-option-meta">
                   Ready-to-install package for Android smartphones and tablets with fast local AI processing.
                 </p>
               </div>
               <button 
                 className="btn btn-primary btn-lg" 
-                onClick={() => triggerDownload(apkUrl, apkName)}
+                onClick={() => triggerDownload(universalUrl, universalName)}
                 style={{ width: '100%' }}
                 id="universal-download-btn"
               >
                 <Download size={20} />
-                <span>Download Latest APK</span>
-                <span style={{ opacity: 0.8, fontSize: '0.85em' }}>({apkSize})</span>
+                <span>Download Universal APK</span>
+                <span style={{ opacity: 0.8, fontSize: '0.85em' }}>({universalSize})</span>
               </button>
             </div>
 
-            {/* Android App Bundle Card */}
+            {/* ARM64 Optimized Card */}
             <div className="apk-option-card">
               <div>
                 <span className="apk-card-badge" style={{ background: 'var(--bg-surface-hover)', color: 'var(--text-main)' }}>
-                  APP BUNDLE
+                  OPTIMIZED · 64-BIT
                 </span>
-                <h3 className="apk-option-title">Android App Bundle</h3>
+                <h3 className="apk-option-title">ARM64 APK</h3>
                 <p className="apk-option-meta">
-                  Official Android App Bundle package (.aab) generated for optimized device delivery.
+                  Streamlined payload engineered specifically for modern 64-bit Android smartphones.
                 </p>
               </div>
               <button 
                 className="btn btn-secondary btn-lg" 
-                onClick={() => triggerDownload(aabUrl, aabName)}
+                onClick={() => triggerDownload(arm64Url, arm64Name)}
                 style={{ width: '100%' }}
                 id="arm64-download-btn"
               >
-                <Package size={20} />
-                <span>Download .AAB Package</span>
-                <span style={{ opacity: 0.8, fontSize: '0.85em' }}>({aabSize})</span>
+                <Smartphone size={20} />
+                <span>Download ARM64 APK</span>
+                <span style={{ opacity: 0.8, fontSize: '0.85em' }}>({arm64Size})</span>
               </button>
             </div>
 
@@ -155,7 +181,7 @@ export default function DownloadHub() {
               <div className="step-num">1</div>
               <div className="step-title">Download APK</div>
               <div className="step-desc">
-                Tap the download button above to retrieve the latest signed APK file directly from the KINETX releases repository.
+                Tap either download button above to retrieve the latest signed APK file directly from verified release builds.
               </div>
             </div>
             <div className="sideload-step">

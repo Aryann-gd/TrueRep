@@ -26,7 +26,7 @@ This repository is the unified web home for **TrueRep**, containing:
 - **Unified Cyber-Athletic Theme**: Obsidian black canvas (`#090B0E`), hexagonal spotlight mesh, electric cyan (`#59B9F9`), and neon emerald (`#10B981`) accents.
 - **Universal Responsiveness**: Precision layouts engineered for 320px fold/mobile screens up to 4K ultra-wide monitors with a fluid mobile navigation drawer.
 - **Interactive Biomechanical Simulator**: Test squat knee flexion from 70° to 150° with real-time depth state detection and synthesized audio feedback.
-- **Dynamic Release Distribution**: Real-time asset inspection querying GitHub Releases API from `Aryann-gd/KINETX` for the latest APK and AAB download links.
+- **Dynamic Release Distribution**: Real-time asset inspection querying GitHub Releases API from `Aryann-gd/KINETX` for the latest verified APK download links.
 - **Clause Search & Progress Bar**: Instant clause filtering across 13 privacy articles and a scroll-tracking reading bar.
 
 ---
@@ -82,8 +82,8 @@ TrueRep/
 ## 📲 Direct APK Download
 
 Download verified builds directly from [TrueRep KINETX Releases](https://github.com/Aryann-gd/KINETX/releases/latest):
-- **Android APK**: Direct install package (`TrueRep-arm64-release.apk`)
-- **Android App Bundle (.aab)**: Production distribution package (`TrueRep-release.aab`)
+- **Universal APK**: Direct install package compatible with all devices (`TrueRep-universal-release.apk`)
+- **ARM64 APK**: Optimized 64-bit install package (`TrueRep-arm64-release.apk`)
 
 ---
 
