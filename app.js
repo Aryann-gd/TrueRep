@@ -4,17 +4,15 @@
  * Target Release Repository: Aryann-gd/TrueRep
  */
 
-// GitHub Release Configuration — Strictly uses KINETX release repo
+// GitHub Release Configuration — Strictly uses TrueRep release repo
 const GITHUB_OWNER = 'Aryann-gd';
-const GITHUB_REPO = 'KINETX';
+const GITHUB_REPO = 'TrueRep';
 
-const FALLBACK_UNIVERSAL_URL = `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases/download/latest-build/TrueRep-arm64-release.apk`;
-const FALLBACK_ARM64_URL = `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases/download/latest-build/TrueRep-arm64-release.apk`;
+const FALLBACK_UNIVERSAL_URL = `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases/download/v1.0.0/TrueRep-universal-release.apk`;
 
 let universalApkUrl = FALLBACK_UNIVERSAL_URL;
-let arm64ApkUrl = FALLBACK_ARM64_URL;
 let latestReleaseTag = 'v1.0.0';
-let latestReleaseSize = '~63 MB';
+let latestReleaseSize = '~68.4 MB';
 
 // Web Audio API Context for real-time telemetry clicks & depth chimes
 let audioCtx = null;

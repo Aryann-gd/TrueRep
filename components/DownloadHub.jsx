@@ -1,28 +1,24 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Download, CheckCircle, ExternalLink, Sparkles, Smartphone, ShieldCheck } from 'lucide-react';
+import { Download, ShieldCheck, Sparkles, CheckCircle2 } from 'lucide-react';
 
 const GITHUB_OWNER = 'Aryann-gd';
-const GITHUB_REPO = 'KINETX';
+const GITHUB_REPO = 'TrueRep';
 
-const FALLBACK_UNIVERSAL_URL = `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases/download/latest-build/TrueRep-universal-release.apk`;
-const FALLBACK_ARM64_URL = `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases/download/latest-build/TrueRep-arm64-release.apk`;
+const FALLBACK_UNIVERSAL_URL = `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases/download/v1.0.0/TrueRep-universal-release.apk`;
 
 export default function DownloadHub() {
-  const [releaseTag, setReleaseTag] = useState('latest-build');
+  const [releaseTag, setReleaseTag] = useState('v1.0.0');
   const [universalSize, setUniversalSize] = useState('~68.4 MB');
-  const [arm64Size, setArm64Size] = useState('~64.6 MB');
   const [universalUrl, setUniversalUrl] = useState(FALLBACK_UNIVERSAL_URL);
-  const [arm64Url, setArm64Url] = useState(FALLBACK_ARM64_URL);
   const [universalName, setUniversalName] = useState('TrueRep-universal-release.apk');
-  const [arm64Name, setArm64Name] = useState('TrueRep-arm64-release.apk');
   const [toast, setToast] = useState({ visible: false, title: '', message: '' });
 
   useEffect(() => {
     async function fetchRelease() {
       try {
-        // Query the sanitized internal release endpoint (purged of any .aab files)
+        // Query the sanitized internal release endpoint (strictly queries Aryann-gd/TrueRep repo)
         const res = await fetch('/api/releases/latest');
         if (!res.ok) return;
         const data = await res.json();
@@ -36,34 +32,20 @@ export default function DownloadHub() {
           const foundUniversal = data.assets.find(a => 
             a.name.toLowerCase().includes('universal') || 
             a.name.toLowerCase() === 'truerep-release.apk' ||
-            a.name.toLowerCase() === 'app-release.apk'
+            a.name.toLowerCase() === 'app-release.apk' ||
+            a.name.toLowerCase().endsWith('.apk')
           );
 
           if (foundUniversal) {
             setUniversalUrl(foundUniversal.browser_download_url);
             setUniversalName(foundUniversal.name);
-            setUniversalSize((foundUniversal.size / (1024 * 1024)).toFixed(1) + ' MB');
-          }
-
-          // Find ARM64 APK
-          const foundArm64 = data.assets.find(a => a.name.toLowerCase().includes('arm64'));
-          if (foundArm64) {
-            setArm64Url(foundArm64.browser_download_url);
-            setArm64Name(foundArm64.name);
-            setArm64Size((foundArm64.size / (1024 * 1024)).toFixed(1) + ' MB');
-            if (!foundUniversal) {
-              setUniversalUrl(foundArm64.browser_download_url);
-              setUniversalName(foundArm64.name);
-              setUniversalSize((foundArm64.size / (1024 * 1024)).toFixed(1) + ' MB');
+            if (foundUniversal.size) {
+              setUniversalSize((foundUniversal.size / (1024 * 1024)).toFixed(1) + ' MB');
             }
-          } else if (foundUniversal && !foundArm64) {
-            setArm64Url(foundUniversal.browser_download_url);
-            setArm64Name(foundUniversal.name);
-            setArm64Size((foundUniversal.size / (1024 * 1024)).toFixed(1) + ' MB');
           }
         }
       } catch (e) {
-        // Fallback silently to defaults
+        // Fallback silently to verified defaults
       }
     }
 
@@ -85,7 +67,7 @@ export default function DownloadHub() {
     setToast({
       visible: true,
       title: `Starting download: ${name}`,
-      message: `Fetching release asset from ${GITHUB_OWNER}/${GITHUB_REPO} (${releaseTag})...`
+      message: `Fetching latest release asset from ${GITHUB_OWNER}/${GITHUB_REPO} (${releaseTag})...`
     });
 
     setTimeout(() => {
@@ -122,53 +104,38 @@ export default function DownloadHub() {
             release hub.
           </p>
 
-          {/* Dynamic APK Cards Grid */}
-          <div className="apk-cards-grid">
-            
-            {/* Direct APK Card (Featured) */}
-            <div className="apk-option-card featured">
-              <div>
-                <span className="apk-card-badge">RECOMMENDED · DIRECT INSTALL</span>
-                <h3 className="apk-option-title">Universal APK</h3>
-                <p className="apk-option-meta">
-                  Ready-to-install package for Android smartphones and tablets with fast local AI processing.
+          {/* Single Universal APK Download Card */}
+          <div className="apk-cards-grid" style={{ maxWidth: '540px', margin: '2.5rem auto' }}>
+            <div className="apk-option-card featured" style={{ textAlign: 'center', alignItems: 'center' }}>
+              <div style={{ width: '100%', marginBottom: '1.5rem' }}>
+                <span className="apk-card-badge">RECOMMENDED · ALL ANDROID DEVICES</span>
+                <h3 className="apk-option-title" style={{ fontSize: '1.6rem', marginTop: '0.4rem', marginBottom: '0.6rem' }}>
+                  Universal APK
+                </h3>
+                <p className="apk-option-meta" style={{ maxWidth: '420px', margin: '0 auto', fontSize: '0.92rem' }}>
+                  Compatible with 100% of Android phones, tablets, and emulators. Includes on-device AI computer vision kinematics form coaching.
                 </p>
+                <div style={{ display: 'flex', justifyContent: 'center', gap: '1.25rem', marginTop: '1rem', color: 'var(--text-secondary)', fontSize: '0.82rem' }}>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}>
+                    <ShieldCheck size={16} color="var(--primary)" /> 100% Private
+                  </span>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}>
+                    <CheckCircle2 size={16} color="var(--accent-lime)" /> No Account Needed
+                  </span>
+                </div>
               </div>
+
               <button 
                 className="btn btn-primary btn-lg" 
                 onClick={() => triggerDownload(universalUrl, universalName)}
-                style={{ width: '100%' }}
+                style={{ width: '100%', padding: '1.1rem 1.75rem', fontSize: '1.05rem' }}
                 id="universal-download-btn"
               >
-                <Download size={20} />
+                <Download size={22} />
                 <span>Download Universal APK</span>
-                <span style={{ opacity: 0.8, fontSize: '0.85em' }}>({universalSize})</span>
+                <span style={{ opacity: 0.85, fontSize: '0.88em' }}>({universalSize})</span>
               </button>
             </div>
-
-            {/* ARM64 Optimized Card */}
-            <div className="apk-option-card">
-              <div>
-                <span className="apk-card-badge" style={{ background: 'var(--bg-surface-hover)', color: 'var(--text-main)' }}>
-                  OPTIMIZED · 64-BIT
-                </span>
-                <h3 className="apk-option-title">ARM64 APK</h3>
-                <p className="apk-option-meta">
-                  Streamlined payload engineered specifically for modern 64-bit Android smartphones.
-                </p>
-              </div>
-              <button 
-                className="btn btn-secondary btn-lg" 
-                onClick={() => triggerDownload(arm64Url, arm64Name)}
-                style={{ width: '100%' }}
-                id="arm64-download-btn"
-              >
-                <Smartphone size={20} />
-                <span>Download ARM64 APK</span>
-                <span style={{ opacity: 0.8, fontSize: '0.85em' }}>({arm64Size})</span>
-              </button>
-            </div>
-
           </div>
 
           <p style={{ fontSize: '0.85rem', color: 'var(--text-sub)' }}>
@@ -181,7 +148,7 @@ export default function DownloadHub() {
               <div className="step-num">1</div>
               <div className="step-title">Download APK</div>
               <div className="step-desc">
-                Tap either download button above to retrieve the latest signed APK file directly from verified release builds.
+                Tap the download button above to retrieve the latest signed APK file directly from TrueRep GitHub releases.
               </div>
             </div>
             <div className="sideload-step">

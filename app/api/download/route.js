@@ -1,14 +1,14 @@
 import { NextResponse } from 'next/server';
 
 const GITHUB_OWNER = 'Aryann-gd';
-const GITHUB_REPO = 'KINETX';
+const GITHUB_REPO = 'TrueRep';
 
-const FALLBACK_UNIVERSAL_URL = `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases/download/latest-build/TrueRep-universal-release.apk`;
-const FALLBACK_ARM64_URL = `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases/download/latest-build/TrueRep-arm64-release.apk`;
+const FALLBACK_UNIVERSAL_URL = `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases/download/v1.0.0/TrueRep-universal-release.apk`;
 
 /**
  * Controlled Download Endpoint
  * Strictly blocks any attempt to download or probe .aab packages.
+ * Serves the verified Universal APK from the TrueRep repository.
  */
 export async function GET(request) {
   const { searchParams } = new URL(request.url);
@@ -26,12 +26,7 @@ export async function GET(request) {
     );
   }
 
-  // Handle valid APK requests
-  if (file.includes('arm64')) {
-    return NextResponse.redirect(FALLBACK_ARM64_URL, 307);
-  }
-
-  // Default to universal APK
+  // Redirect to Universal APK from Aryann-gd/TrueRep
   return NextResponse.redirect(FALLBACK_UNIVERSAL_URL, 307);
 }
 

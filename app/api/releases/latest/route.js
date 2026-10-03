@@ -1,15 +1,14 @@
 import { NextResponse } from 'next/server';
 
 const GITHUB_OWNER = 'Aryann-gd';
-const GITHUB_REPO_PRIMARY = 'KINETX';
-const GITHUB_REPO_FALLBACK = 'TrueRep';
+const GITHUB_REPO = 'TrueRep';
 
-const FALLBACK_UNIVERSAL_URL = `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO_PRIMARY}/releases/download/latest-build/TrueRep-universal-release.apk`;
-const FALLBACK_ARM64_URL = `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO_PRIMARY}/releases/download/latest-build/TrueRep-arm64-release.apk`;
+const FALLBACK_UNIVERSAL_URL = `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases/download/v1.0.0/TrueRep-universal-release.apk`;
 
 /**
  * Server-Side Release Proxy & Sanitizer
- * Shields GitHub release payloads by purging any .aab file references or URLs before sending to client.
+ * Fetches the latest release strictly from Aryann-gd/TrueRep repository.
+ * Shields release payloads by purging any .aab bundle references before sending to client.
  */
 export async function GET(request) {
   const { searchParams } = new URL(request.url);
@@ -30,8 +29,7 @@ export async function GET(request) {
   try {
     let releaseData = null;
 
-    // Try primary repo (KINETX)
-    let res = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO_PRIMARY}/releases/latest`, {
+    const res = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/releases/latest`, {
       headers: {
         'Accept': 'application/vnd.github.v3+json',
         'User-Agent': 'TrueRep-WebHub/1.0'
@@ -41,31 +39,13 @@ export async function GET(request) {
 
     if (res.ok) {
       releaseData = await res.json();
-    } else {
-      // Fallback repo (TrueRep)
-      res = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO_FALLBACK}/releases/latest`, {
-        headers: {
-          'Accept': 'application/vnd.github.v3+json',
-          'User-Agent': 'TrueRep-WebHub/1.0'
-        },
-        next: { revalidate: 300 }
-      });
-      if (res.ok) {
-        releaseData = await res.json();
-      }
     }
 
     if (!releaseData) {
-      // Return predefined safe APK fallback info
+      // Return predefined safe Universal APK fallback info from TrueRep repo
       return NextResponse.json({
-        tag_name: 'latest-build',
+        tag_name: 'v1.0.0',
         assets: [
-          {
-            name: 'TrueRep-arm64-release.apk',
-            size: 67738000,
-            browser_download_url: FALLBACK_ARM64_URL,
-            type: 'arm64'
-          },
           {
             name: 'TrueRep-universal-release.apk',
             size: 69400000,
@@ -85,8 +65,7 @@ export async function GET(request) {
     const sanitizedAssets = (releaseData.assets || [])
       .filter(asset => {
         const name = (asset.name || '').toLowerCase();
-        // Disallow anything ending with or containing .aab
-        return !name.endsWith('.aab') && !name.includes('.aab');
+        return !name.endsWith('.aab') && !name.includes('.aab') && name.endsWith('.apk');
       })
       .map(asset => ({
         name: asset.name,
@@ -95,8 +74,15 @@ export async function GET(request) {
       }));
 
     return NextResponse.json({
-      tag_name: releaseData.tag_name || 'latest-build',
-      assets: sanitizedAssets,
+      tag_name: releaseData.tag_name || 'v1.0.0',
+      assets: sanitizedAssets.length > 0 ? sanitizedAssets : [
+        {
+          name: 'TrueRep-universal-release.apk',
+          size: 69400000,
+          browser_download_url: FALLBACK_UNIVERSAL_URL,
+          type: 'universal'
+        }
+      ],
       published_at: releaseData.published_at || null
     }, {
       headers: {
@@ -107,14 +93,8 @@ export async function GET(request) {
 
   } catch (error) {
     return NextResponse.json({
-      tag_name: 'latest-build',
+      tag_name: 'v1.0.0',
       assets: [
-        {
-          name: 'TrueRep-arm64-release.apk',
-          size: 67738000,
-          browser_download_url: FALLBACK_ARM64_URL,
-          type: 'arm64'
-        },
         {
           name: 'TrueRep-universal-release.apk',
           size: 69400000,

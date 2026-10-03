@@ -66,11 +66,11 @@ export default function Footer() {
               <a href="https://github.com/Aryann-gd/TrueRep" target="_blank" rel="noopener noreferrer">
                 TrueRep Repository
               </a>
-              <a href="https://github.com/Aryann-gd/KINETX/releases" target="_blank" rel="noopener noreferrer">
-                TrueRep Releases Hub (KINETX)
+              <a href="https://github.com/Aryann-gd/TrueRep/releases" target="_blank" rel="noopener noreferrer">
+                TrueRep Releases Hub
               </a>
-              <a href="https://github.com/Aryann-gd/KINETX" target="_blank" rel="noopener noreferrer">
-                Core App Source (KINETX)
+              <a href="https://github.com/Aryann-gd/TrueRep" target="_blank" rel="noopener noreferrer">
+                Core App Source (TrueRep)
               </a>
               <a 
                 href="https://instagram.com/truerep.official" 

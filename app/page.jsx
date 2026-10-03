@@ -42,7 +42,7 @@ export default function HomePage() {
               </Link>
 
               <a 
-                href="https://github.com/Aryann-gd/KINETX/releases" 
+                href="https://github.com/Aryann-gd/TrueRep/releases" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="btn btn-secondary btn-lg" 
