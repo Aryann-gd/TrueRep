@@ -117,6 +117,56 @@ const jsonLdWebSite = {
   description: 'AI-Powered Real-Time Biomechanics & Nutrition Telemetry with 9 Gym Ranks',
 };
 
+const jsonLdVideoObject = {
+  '@context': 'https://schema.org',
+  '@type': 'VideoObject',
+  name: 'TrueRep — Real-Time AI Workout Form Coach & Kinematics Telemetry Demo',
+  description: 'Watch TrueRep 33-point on-device AI pose tracking analyze squat depth, rep cadence, and live biomechanics with zero cloud latency.',
+  thumbnailUrl: `${siteUrl}/assets/brag.jpg`,
+  uploadDate: '2026-10-02T20:36:00Z',
+  contentUrl: `${siteUrl}/assets/brag.mp4`,
+  embedUrl: `${siteUrl}/#video-demo`,
+};
+
+const jsonLdFaqPage = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How does TrueRep track my workout form in real time?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'TrueRep uses on-device computer vision powered by Google MediaPipe 3D pose estimation. It tracks 33 anatomical landmarks across your body at 30+ FPS to calculate exact joint articulation angles and verify full depth before counting a rep.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Does TrueRep upload my camera video or workout footage to the cloud?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. TrueRep operates on a zero-cloud architecture. All camera frames are processed in local volatile RAM and immediately discarded. No video or biometric imagery ever leaves your phone.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How do the 9 Gym Strength Ranks work?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'TrueRep gamifies your fitness across 9 tiers: Wood, Bronze, Silver, Gold, Platinum, Diamond, Champion, Titan, and Olympian. You earn Rank Points for verified reps, hitting optimal joint angles, and maintaining cadence.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I use TrueRep completely offline without internet or cellular data?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Both the AI computer vision models and the offline nutritional macro database run 100% locally on your phone without internet or subscription paywalls.',
+      },
+    },
+  ],
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -135,6 +185,14 @@ export default function RootLayout({ children }) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebSite) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdVideoObject) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaqPage) }}
         />
       </head>
       <body>

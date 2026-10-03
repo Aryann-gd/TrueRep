@@ -55,7 +55,9 @@ export default function Footer() {
               <Link href="/#features">Features</Link>
               <Link href="/#ranks">Nine Ranks</Link>
               <Link href="/#telemetry">AI Form Coach</Link>
+              <Link href="/#video-demo">Demo Video</Link>
               <Link href="/#simulator">Angle Simulator</Link>
+              <Link href="/#faq">FAQ</Link>
               <Link href="/#download">Download APK</Link>
             </div>
           </div>

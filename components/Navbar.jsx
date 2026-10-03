@@ -37,8 +37,14 @@ export default function Navbar() {
           <Link href="/#telemetry" className="nav-link">
             AI Vision
           </Link>
+          <Link href="/#video-demo" className="nav-link">
+            Demo
+          </Link>
           <Link href="/#simulator" className="nav-link">
             Angle Gauge
+          </Link>
+          <Link href="/#faq" className="nav-link">
+            FAQ
           </Link>
           <Link href="/#download" className="nav-link">
             Download APK
@@ -82,8 +88,14 @@ export default function Navbar() {
         <Link href="/#telemetry" className="nav-link" onClick={closeMobileMenu}>
           AI Vision
         </Link>
+        <Link href="/#video-demo" className="nav-link" onClick={closeMobileMenu}>
+          Demo Video
+        </Link>
         <Link href="/#simulator" className="nav-link" onClick={closeMobileMenu}>
           Angle Gauge
+        </Link>
+        <Link href="/#faq" className="nav-link" onClick={closeMobileMenu}>
+          FAQ
         </Link>
         <Link href="/#download" className="nav-link" onClick={closeMobileMenu}>
           Download APK

@@ -4,6 +4,8 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import RanksShowcase from '../components/RanksShowcase';
 import TelemetrySimulator from '../components/TelemetrySimulator';
+import VideoShowcase from '../components/VideoShowcase';
+import FaqSection from '../components/FaqSection';
 import DownloadHub from '../components/DownloadHub';
 import { Download, Shield, Sparkles, Activity, Layers, Smartphone, EyeOff, Utensils } from 'lucide-react';
 
@@ -88,11 +90,16 @@ export default function HomePage() {
                 <div className="phone-screen">
                   <div className="phone-notch"></div>
                   
-                  {/* High-Impact AI Workout Telemetry Graphic */}
-                  <img 
-                    src="/assets/ai_workout_vision.jpg" 
-                    alt="TrueRep Real-Time AI Workout Form Tracking" 
+                  {/* High-Impact AI Workout Telemetry Video */}
+                  <video 
+                    src="/assets/brag.mp4" 
+                    poster="/assets/brag.jpg" 
+                    autoPlay 
+                    loop 
+                    muted 
+                    playsInline 
                     className="phone-camera-video" 
+                    aria-label="TrueRep Real-Time AI Workout Form Tracking" 
                   />
 
                   {/* Live HUD Overlay */}
@@ -257,6 +264,12 @@ export default function HomePage() {
 
         {/* Interactive Biomechanical Simulator */}
         <TelemetrySimulator />
+
+        {/* Official Telemetry Video Showcase */}
+        <VideoShowcase />
+
+        {/* SEO FAQ Section */}
+        <FaqSection />
 
         {/* Download Hub */}
         <DownloadHub />
