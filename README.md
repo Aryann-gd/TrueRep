@@ -5,7 +5,7 @@
 > High-performance Next.js application unifying the official TrueRep landing page and Google Play Store compliant Privacy Policy into a single modern repository.
 
 [![Official Website](https://img.shields.io/badge/Website-Live-brightgreen)](https://aryann-gd.github.io/TrueRep/)
-[![Latest Release](https://img.shields.io/github/v/release/Aryann-gd/TrueRep?label=Latest%20APK&color=10B981)](https://github.com/Aryann-gd/TrueRep/releases/latest)
+[![Latest Release](https://img.shields.io/github/v/release/Aryann-gd/KINETX?label=Latest%20APK&color=10B981)](https://github.com/Aryann-gd/KINETX/releases/latest)
 [![Platform](https://img.shields.io/badge/Platform-Android%20(SDK%2026--35)-blue)](https://github.com/Aryann-gd/TrueRep)
 [![Privacy](https://img.shields.io/badge/Privacy-100%25%20On--Device-10B981)](https://aryann-gd.github.io/TrueRep/privacy)
 [![License](https://img.shields.io/badge/License-BSD--3--Clause-orange)](LICENSE)
@@ -15,7 +15,7 @@
 ## ⚡ Overview
 
 This repository is the unified web home for **TrueRep**, containing:
-1. **The Product Landing Page (`/`)**: Liftoff-grade kinetic dark cyber-athletic design showcasing 3D joint telemetry, interactive 9-rank competitive ladder (Wood to Olympian), live biomechanical angle HUD simulator with Web Audio API chime, and dynamic GitHub Release APK installer.
+1. **The Product Landing Page (`/`)**: Liftoff-grade kinetic dark cyber-athletic design showcasing 3D joint telemetry, interactive 9-rank competitive ladder (Wood to Olympian), live biomechanical angle HUD simulator with Web Audio API chime, and dynamic GitHub Release APK installer fetching from the `Aryann-gd/KINETX` build repository.
 2. **The Full Privacy Policy Hub (`/privacy`)**: 100% on-device AI privacy architecture, real-time clause search filter, reading progress bar, Android Health Connect transparency table, permissions matrix, and GDPR/CCPA data deletion instructions.
 
 ---
@@ -26,7 +26,7 @@ This repository is the unified web home for **TrueRep**, containing:
 - **Unified Cyber-Athletic Theme**: Obsidian black canvas (`#090B0E`), hexagonal spotlight mesh, electric cyan (`#59B9F9`), and neon emerald (`#10B981`) accents.
 - **Universal Responsiveness**: Precision layouts engineered for 320px fold/mobile screens up to 4K ultra-wide monitors with a fluid mobile navigation drawer.
 - **Interactive Biomechanical Simulator**: Test squat knee flexion from 70° to 150° with real-time depth state detection and synthesized audio feedback.
-- **Dynamic Release Distribution**: Real-time asset inspection querying GitHub Releases API for Universal & ARM64 APK download links.
+- **Dynamic Release Distribution**: Real-time asset inspection querying GitHub Releases API from `Aryann-gd/KINETX` for the latest APK and AAB download links.
 - **Clause Search & Progress Bar**: Instant clause filtering across 13 privacy articles and a scroll-tracking reading bar.
 
 ---
@@ -81,12 +81,12 @@ TrueRep/
 
 ## 📲 Direct APK Download
 
-Download verified APK builds directly from [TrueRep GitHub Releases](https://github.com/Aryann-gd/TrueRep/releases/latest):
-- **Universal APK**: Supports 100% of Android devices (ARM64, ARMv7, x86_64).
-- **ARM64 APK**: Streamlined payload for modern 64-bit Android smartphones.
+Download verified builds directly from [TrueRep KINETX Releases](https://github.com/Aryann-gd/KINETX/releases/latest):
+- **Android APK**: Direct install package (`TrueRep-arm64-release.apk`)
+- **Android App Bundle (.aab)**: Production distribution package (`TrueRep-release.aab`)
 
 ---
 
 ## 📄 License & Attribution
 
-Open-source under the BSD-3-Clause License. Built with MediaPipe on-device edge intelligence.
+Open-source under the BSD-3-Clause License. Built with 100% on-device AI.

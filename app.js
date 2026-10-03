@@ -4,12 +4,12 @@
  * Target Release Repository: Aryann-gd/TrueRep
  */
 
-// GitHub Release Configuration — Strictly uses TrueRep repo
+// GitHub Release Configuration — Strictly uses KINETX release repo
 const GITHUB_OWNER = 'Aryann-gd';
-const GITHUB_REPO = 'TrueRep';
+const GITHUB_REPO = 'KINETX';
 
-const FALLBACK_UNIVERSAL_URL = `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases/latest/download/TrueRep-universal-release.apk`;
-const FALLBACK_ARM64_URL = `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases/latest/download/TrueRep-arm64-release.apk`;
+const FALLBACK_UNIVERSAL_URL = `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases/download/latest-build/TrueRep-arm64-release.apk`;
+const FALLBACK_ARM64_URL = `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases/download/latest-build/TrueRep-arm64-release.apk`;
 
 let universalApkUrl = FALLBACK_UNIVERSAL_URL;
 let arm64ApkUrl = FALLBACK_ARM64_URL;

@@ -13,10 +13,21 @@ import {
   ArrowLeft, 
   Copy, 
   Check, 
-  Info
+  Info,
+  ExternalLink
 } from 'lucide-react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+
+function InstagramIcon({ size = 20, color = "#E1306C" }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+    </svg>
+  );
+}
 
 const SECTIONS = [
   { id: 'sec-overview', num: '01', title: 'Overview & Core Philosophy', label: 'Overview' },
@@ -569,7 +580,7 @@ export default function PrivacyPolicyPage() {
                       <ShieldCheck size={24} />
                     </div>
                     <div>
-                      <span className="contact-label">Official Developer Contact</span>
+                      <span className="contact-label">Official Developer Email</span>
                       <span className="contact-email">support@truerep.com</span>
                     </div>
                   </div>
@@ -582,6 +593,29 @@ export default function PrivacyPolicyPage() {
                     {copiedEmail ? <Check size={18} /> : <Copy size={18} />}
                     <span>{copiedEmail ? 'Copied to Clipboard!' : 'Copy Email'}</span>
                   </button>
+                </div>
+
+                <div className="contact-card" style={{ marginTop: '1rem', borderColor: 'rgba(225, 48, 108, 0.4)' }}>
+                  <div className="contact-info">
+                    <div className="contact-icon" style={{ background: 'rgba(225, 48, 108, 0.12)', color: '#E1306C' }}>
+                      <InstagramIcon size={24} />
+                    </div>
+                    <div>
+                      <span className="contact-label">Official Instagram</span>
+                      <span className="contact-email">@truerep.official</span>
+                    </div>
+                  </div>
+
+                  <a 
+                    href="https://instagram.com/truerep.official" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="btn btn-secondary"
+                    aria-label="Open TrueRep Instagram"
+                  >
+                    <ExternalLink size={18} />
+                    <span>Follow @truerep.official</span>
+                  </a>
                 </div>
               </section>
             )}
