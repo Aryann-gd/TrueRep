@@ -65,7 +65,7 @@ export default function PrivacyPolicyPage() {
   }, []);
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText('support@truerep.com');
+    navigator.clipboard.writeText('aryankumar3261@gmail.com');
     setCopiedEmail(true);
     setTimeout(() => setCopiedEmail(false), 3000);
   };
@@ -581,7 +581,7 @@ export default function PrivacyPolicyPage() {
                     </div>
                     <div>
                       <span className="contact-label">Official Developer Email</span>
-                      <span className="contact-email">support@truerep.com</span>
+                      <span className="contact-email">aryankumar3261@gmail.com</span>
                     </div>
                   </div>
 

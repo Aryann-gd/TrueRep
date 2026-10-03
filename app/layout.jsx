@@ -1,7 +1,7 @@
 import './globals.css';
 
 export const metadata = {
-  metadataBase: new URL('https://aryann-gd.github.io/TrueRep/'),
+  metadataBase: new URL('https://truerep-omega.vercel.app/'),
   title: 'TrueRep — Gym With Ranks & AI Workout Tracking',
   description: 'TrueRep is the open-source workout tracker that ranks every lift with real-time on-device AI. Track your form, verify squat depth, and climb 9 strength ranks from Wood to Olympian.',
   keywords: [
@@ -22,7 +22,7 @@ export const metadata = {
   },
   openGraph: {
     type: 'website',
-    url: 'https://aryann-gd.github.io/TrueRep/',
+    url: 'https://truerep-omega.vercel.app/',
     title: 'TrueRep — Gym With Ranks & AI Workout Tracking',
     description: 'Log your sets, track your body in real-time with AI, get instant form coaching, and climb 9 strength tiers from Wood to Olympian.',
     images: [

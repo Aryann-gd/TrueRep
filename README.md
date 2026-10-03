@@ -4,10 +4,10 @@
 > 
 > High-performance Next.js application unifying the official TrueRep landing page and Google Play Store compliant Privacy Policy into a single modern repository.
 
-[![Official Website](https://img.shields.io/badge/Website-Live-brightgreen)](https://aryann-gd.github.io/TrueRep/)
+[![Official Website](https://img.shields.io/badge/Website-Live-brightgreen)](https://truerep-omega.vercel.app/)
 [![Latest Release](https://img.shields.io/github/v/release/Aryann-gd/TrueRep?label=Latest%20APK&color=10B981)](https://github.com/Aryann-gd/TrueRep/releases/latest)
 [![Platform](https://img.shields.io/badge/Platform-Android%20(SDK%2026--35)-blue)](https://github.com/Aryann-gd/TrueRep)
-[![Privacy](https://img.shields.io/badge/Privacy-100%25%20On--Device-10B981)](https://aryann-gd.github.io/TrueRep/privacy)
+[![Privacy](https://img.shields.io/badge/Privacy-100%25%20On--Device-10B981)](https://truerep-omega.vercel.app/privacy)
 [![License](https://img.shields.io/badge/License-BSD--3--Clause-orange)](LICENSE)
 
 ---
