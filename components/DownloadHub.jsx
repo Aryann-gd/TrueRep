@@ -6,13 +6,13 @@ import { Download, ShieldCheck, Sparkles, CheckCircle2 } from 'lucide-react';
 const GITHUB_OWNER = 'Aryann-gd';
 const GITHUB_REPO = 'TrueRep';
 
-const FALLBACK_UNIVERSAL_URL = `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases/download/v1.0.0/TrueRep-universal-release.apk`;
+const FALLBACK_UNIVERSAL_URL = `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases/download/release/TrueRep.apk`;
 
 export default function DownloadHub() {
-  const [releaseTag, setReleaseTag] = useState('v1.0.0');
-  const [universalSize, setUniversalSize] = useState('~68.4 MB');
+  const [releaseTag, setReleaseTag] = useState('release');
+  const [universalSize, setUniversalSize] = useState('~64.6 MB');
   const [universalUrl, setUniversalUrl] = useState(FALLBACK_UNIVERSAL_URL);
-  const [universalName, setUniversalName] = useState('TrueRep-universal-release.apk');
+  const [universalName, setUniversalName] = useState('TrueRep.apk');
   const [toast, setToast] = useState({ visible: false, title: '', message: '' });
 
   useEffect(() => {

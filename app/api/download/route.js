@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 const GITHUB_OWNER = 'Aryann-gd';
 const GITHUB_REPO = 'TrueRep';
 
-const FALLBACK_UNIVERSAL_URL = `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases/download/v1.0.0/TrueRep-universal-release.apk`;
+const FALLBACK_UNIVERSAL_URL = `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases/download/release/TrueRep.apk`;
 
 /**
  * Controlled Download Endpoint

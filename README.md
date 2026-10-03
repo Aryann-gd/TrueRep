@@ -82,7 +82,7 @@ TrueRep/
 ## 📲 Direct APK Download
 
 Download verified builds directly from [TrueRep GitHub Releases](https://github.com/Aryann-gd/TrueRep/releases/latest):
-- **Universal APK**: Direct install package compatible with all devices (`TrueRep-universal-release.apk`)
+- **Universal APK**: Direct install package compatible with all devices (`TrueRep.apk`)
 
 ---
 

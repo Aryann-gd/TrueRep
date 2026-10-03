@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 const GITHUB_OWNER = 'Aryann-gd';
 const GITHUB_REPO = 'TrueRep';
 
-const FALLBACK_UNIVERSAL_URL = `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases/download/v1.0.0/TrueRep-universal-release.apk`;
+const FALLBACK_UNIVERSAL_URL = `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases/download/release/TrueRep.apk`;
 
 /**
  * Server-Side Release Proxy & Sanitizer
@@ -44,11 +44,11 @@ export async function GET(request) {
     if (!releaseData) {
       // Return predefined safe Universal APK fallback info from TrueRep repo
       return NextResponse.json({
-        tag_name: 'v1.0.0',
+        tag_name: 'release',
         assets: [
           {
-            name: 'TrueRep-universal-release.apk',
-            size: 69400000,
+            name: 'TrueRep.apk',
+            size: 67767205,
             browser_download_url: FALLBACK_UNIVERSAL_URL,
             type: 'universal'
           }
@@ -74,11 +74,11 @@ export async function GET(request) {
       }));
 
     return NextResponse.json({
-      tag_name: releaseData.tag_name || 'v1.0.0',
+      tag_name: releaseData.tag_name || 'release',
       assets: sanitizedAssets.length > 0 ? sanitizedAssets : [
         {
-          name: 'TrueRep-universal-release.apk',
-          size: 69400000,
+          name: 'TrueRep.apk',
+          size: 67767205,
           browser_download_url: FALLBACK_UNIVERSAL_URL,
           type: 'universal'
         }
@@ -93,11 +93,11 @@ export async function GET(request) {
 
   } catch (error) {
     return NextResponse.json({
-      tag_name: 'v1.0.0',
+      tag_name: 'release',
       assets: [
         {
-          name: 'TrueRep-universal-release.apk',
-          size: 69400000,
+          name: 'TrueRep.apk',
+          size: 67767205,
           browser_download_url: FALLBACK_UNIVERSAL_URL,
           type: 'universal'
         }

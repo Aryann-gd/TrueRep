@@ -8,11 +8,11 @@
 const GITHUB_OWNER = 'Aryann-gd';
 const GITHUB_REPO = 'TrueRep';
 
-const FALLBACK_UNIVERSAL_URL = `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases/download/v1.0.0/TrueRep-universal-release.apk`;
+const FALLBACK_UNIVERSAL_URL = `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases/download/release/TrueRep.apk`;
 
 let universalApkUrl = FALLBACK_UNIVERSAL_URL;
-let latestReleaseTag = 'v1.0.0';
-let latestReleaseSize = '~68.4 MB';
+let latestReleaseTag = 'release';
+let latestReleaseSize = '~64.6 MB';
 
 // Web Audio API Context for real-time telemetry clicks & depth chimes
 let audioCtx = null;
@@ -81,8 +81,10 @@ async function fetchLatestTrueRepRelease() {
       // Find Universal APK
       const universalAsset = data.assets.find(a => 
         a.name.toLowerCase().includes('universal') || 
+        a.name.toLowerCase() === 'truerep.apk' ||
         a.name === 'TrueRep-release.apk' || 
-        a.name === 'app-release.apk'
+        a.name === 'app-release.apk' ||
+        a.name.toLowerCase().endsWith('.apk')
       );
       if (universalAsset) {
         universalApkUrl = universalAsset.browser_download_url;
