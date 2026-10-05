@@ -1,22 +1,60 @@
 export const metadata = {
-  title: 'Privacy Policy — TrueRep Zero-Cloud AI Workout Tracker',
-  description: 'TrueRep privacy policy: 100% on-device AI processing, zero camera video uploaded to the cloud, local database storage, and complete user privacy.',
+  title: 'TrueRep Privacy Policy - On-Device AI, Zero Cloud Data',
+  description: 'TrueRep processes all workout data on your device. Camera frames never leave your phone. Read our privacy-first approach to fitness tracking.',
   alternates: {
-    canonical: '/privacy',
+    canonical: 'https://truerep-omega.vercel.app/privacy',
   },
   openGraph: {
-    title: 'TrueRep Privacy Policy — 100% On-Device & Zero Cloud Storage',
-    description: 'Learn how TrueRep protects your privacy with on-device computer vision and zero cloud video storage.',
+    title: 'TrueRep Privacy Policy - On-Device AI, Zero Cloud Data',
+    description: 'TrueRep processes all workout data on your device. Camera frames never leave your phone. Read our privacy-first approach to fitness tracking.',
     url: 'https://truerep-omega.vercel.app/privacy',
     type: 'website',
+    siteName: 'TrueRep',
+    images: [
+      {
+        url: 'https://truerep-omega.vercel.app/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'TrueRep Privacy Policy',
+      },
+    ],
   },
   twitter: {
-    card: 'summary',
-    title: 'TrueRep Privacy Policy — 100% On-Device Privacy',
-    description: 'Zero cloud video, offline calorie logging, and on-device computer vision.',
+    card: 'summary_large_image',
+    title: 'TrueRep Privacy Policy - On-Device AI, Zero Cloud Data',
+    description: 'TrueRep processes all workout data on your device. Camera frames never leave your phone. Read our privacy-first approach to fitness tracking.',
+    images: ['https://truerep-omega.vercel.app/twitter-image.jpg'],
+    site: '@truerep_app',
   },
 };
 
+const jsonLdBreadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: 'https://truerep-omega.vercel.app',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Privacy Policy',
+      item: 'https://truerep-omega.vercel.app/privacy',
+    },
+  ],
+};
+
 export default function PrivacyLayout({ children }) {
-  return children;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdBreadcrumb) }}
+      />
+      {children}
+    </>
+  );
 }
