@@ -79,12 +79,12 @@ export const metadata = {
     google: '8JZvIe0b50xqKaesmczIWcT0oYThtlpE_mpjktsvrS0',
   },
   other: {
-    'theme-color': '#2E86F5',
+    'theme-color': '#090B0E',
   },
 };
 
 export const viewport = {
-  themeColor: '#2E86F5',
+  themeColor: '#090B0E',
   width: 'device-width',
   initialScale: 1,
 };
@@ -262,14 +262,6 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
-        <noscript>
-          <iframe 
-            src="https://www.googletagmanager.com/ns.html?id=GTM-TRUEREP"
-            height="0" 
-            width="0" 
-            style={{ display: 'none', visibility: 'hidden' }}
-          />
-        </noscript>
         {children}
       </body>
     </html>
