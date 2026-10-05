@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://truerep-omega.vercel.app/sitemap.xml
+
+# Block admin/build directories
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /api/
