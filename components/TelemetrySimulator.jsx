@@ -126,9 +126,9 @@ export default function TelemetrySimulator() {
           <div className="sim-slider-container">
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '0.5rem' }}>
               <div>
-                <h3 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '0.25rem' }}>
+                <h2 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '0.25rem', fontFamily: 'var(--font-display)' }}>
                   Test The Real-Time AI Gauge
-                </h3>
+                </h2>
                 <p style={{ fontSize: '0.92rem', color: 'var(--text-secondary)', marginBottom: '1.25rem' }}>
                   Drag the slider to simulate squat depth. Watch how TrueRep&apos;s AI detects descent, parallel depth (≤ 95°), and locked ascent in real-time.
                 </p>

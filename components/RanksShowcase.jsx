@@ -51,7 +51,15 @@ export default function RanksShowcase() {
                 }}
                 data-rank={rank.name}
               >
-                <img src={rank.img} alt={`${rank.name} Rank Badge`} className="rank-badge-img" />
+                <img 
+                  src={rank.img} 
+                  alt={`TrueRep ${rank.name} Rank Badge`} 
+                  className="rank-badge-img" 
+                  width="48"
+                  height="48"
+                  loading="lazy"
+                  decoding="async"
+                />
                 <span className="rank-name">{rank.name}</span>
                 <span className="rank-rp">{rank.rp}</span>
               </div>
@@ -77,7 +85,11 @@ export default function RanksShowcase() {
           <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
             <img 
               src={selectedRank.img} 
-              alt={selectedRank.name} 
+              alt={`TrueRep ${selectedRank.name} Rank Details`} 
+              width="60"
+              height="60"
+              loading="lazy"
+              decoding="async"
               style={{ width: '60px', height: '60px', objectFit: 'contain' }}
             />
             <div>
