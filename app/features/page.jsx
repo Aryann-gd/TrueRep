@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import Link from 'next/link';
@@ -17,7 +17,9 @@ import {
   Volume2, 
   Layers, 
   ArrowRight,
-  Sparkles
+  Sparkles,
+  Coins,
+  CalendarCheck
 } from 'lucide-react';
 
 export default function FeaturesPage() {
@@ -44,6 +46,27 @@ export default function FeaturesPage() {
       highlights: ['Wood, Bronze, Silver, Gold tiers', 'Platinum, Diamond, Champion tiers', 'Elite Titan and Olympian crests', 'Dynamic unlockable badges']
     },
     {
+      icon: <Sparkles size={28} style={{ color: '#A855F7' }} />,
+      title: 'Avatar Frames & In-App Shop',
+      tag: 'Cosmetics & Prestige',
+      desc: 'Equip exclusive cosmetic profile frames to showcase your dedication. Choose from Dynamic Rank Halos, Flame Titan, Lightning Kinetic, Royal Crown, and Obsidian Stealth.',
+      highlights: ['Dynamic pulsating rank halos', 'Equip & switch anytime in Profile', 'Special milestone & level unlocks', 'Zero real-money paywalls']
+    },
+    {
+      icon: <Layers size={28} style={{ color: '#10B981' }} />,
+      title: 'Structured Daily Splits & Unified Logging',
+      tag: 'Structured Training',
+      desc: 'Follow curated daily workout splits (Chest, Legs, Back, Arms). Plan completion updates with dashboard checkmarks and saves multi-exercise routines into a single unified session history entry.',
+      highlights: ['Targeted daily split routines', 'Dashboard completion state checkmarks', 'Unified multi-exercise history logs', 'Daily streak qualification']
+    },
+    {
+      icon: <Coins size={28} style={{ color: '#FBBF24' }} />,
+      title: 'Workout Rewards & Coin Economy',
+      tag: 'Economy & Progression',
+      desc: 'Earn coins on every completed workout session, not only after level-ups. Stack active 2x coin boosters and level bonuses to spend in the in-app shop.',
+      highlights: ['Guaranteed coins per completed session', '2x booster multiplier compatibility', 'Level-up coin bonus payouts', '100% earned through workouts']
+    },
+    {
       icon: <Flame size={28} style={{ color: '#EF4444' }} />,
       title: 'Streak Rewards & Habit XP',
       tag: 'Accountability',
@@ -58,7 +81,7 @@ export default function FeaturesPage() {
       highlights: ['Custom daily target based on weight', 'Quick-log water increments', 'Hydration streak reminders', 'Integrated recovery telemetry']
     },
     {
-      icon: <Utensils size={28} style={{ color: '#A855F7' }} />,
+      icon: <Utensils size={28} style={{ color: '#EC4899' }} />,
       title: 'Offline Calorie & Macro Fueling',
       tag: 'Nutrition',
       desc: 'Bundled nutritional database containing staple fitness foods. Log protein, carbs, fats, and calories with zero network connection required.',
@@ -75,7 +98,7 @@ export default function FeaturesPage() {
       icon: <Smartphone size={28} style={{ color: '#F43F5E' }} />,
       title: 'Universal Android Compatibility',
       tag: 'Open Access',
-      desc: 'Engineered in Kotlin for high performance and low battery consumption across all modern Android devices from Android 8.0 to Android 15+.',
+      desc: 'Engineered for high performance and low battery consumption across all modern Android devices from Android 8.0 to Android 15+.',
       highlights: ['Runs on budget & flagship chips', 'GPU and NPU acceleration', 'Low battery consumption', 'Free APK distribution']
     }
   ];
@@ -100,7 +123,7 @@ export default function FeaturesPage() {
             </h1>
 
             <p className="hero-subtext" style={{ maxWidth: '750px', margin: '0 auto 2.5rem auto' }}>
-              AI rep counting, form validation, workout plans, streak badges, and hydration tracking. 
+              AI rep counting, form validation, daily split plans, avatar frame cosmetics, streak badges, and hydration tracking. 
               All processed 100% on-device with zero cloud uploads, zero subscriptions, and zero ads during workouts.
             </p>
 

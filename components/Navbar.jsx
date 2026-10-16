@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -28,11 +28,14 @@ export default function Navbar() {
 
         {/* Desktop Navigation */}
         <nav className="nav-links">
-          <Link href="/#features" className={`nav-link ${!isPrivacyPage ? '' : ''}`}>
+          <Link href="/#features" className="nav-link">
             Features
           </Link>
           <Link href="/#ranks" className="nav-link">
             Nine Ranks
+          </Link>
+          <Link href="/#frames" className="nav-link">
+            Avatar Frames
           </Link>
           <Link href="/#telemetry" className="nav-link">
             AI Vision
@@ -59,9 +62,9 @@ export default function Navbar() {
           </Link>
         </nav>
 
-        {/* Desktop CTA Action */}
-        <div className="nav-actions">
-          <Link href="/#download" className="btn btn-primary" id="nav-get-app-btn">
+        {/* Right Action Button & Mobile Hamburger */}
+        <div className="header-actions">
+          <Link href="#download" className="btn btn-primary btn-sm nav-cta-btn" id="nav-download-cta">
             <Download size={16} />
             <span>GET THE APP</span>
           </Link>
@@ -84,6 +87,9 @@ export default function Navbar() {
         </Link>
         <Link href="/#ranks" className="nav-link" onClick={closeMobileMenu}>
           Nine Ranks
+        </Link>
+        <Link href="/#frames" className="nav-link" onClick={closeMobileMenu}>
+          Avatar Frames
         </Link>
         <Link href="/#telemetry" className="nav-link" onClick={closeMobileMenu}>
           AI Vision
@@ -108,23 +114,6 @@ export default function Navbar() {
           <ShieldCheck size={16} />
           <span>Privacy Policy</span>
         </Link>
-
-        <div className="nav-actions-mobile">
-          <Link href="/#download" className="btn btn-primary" onClick={closeMobileMenu}>
-            <Download size={16} />
-            <span>DOWNLOAD UNIVERSAL APK</span>
-          </Link>
-          <a 
-            href="https://github.com/Aryann-gd/TrueRep" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="btn btn-secondary"
-            onClick={closeMobileMenu}
-          >
-            <ExternalLink size={16} />
-            <span>GitHub Repository</span>
-          </a>
-        </div>
       </div>
     </header>
   );

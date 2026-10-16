@@ -1,13 +1,14 @@
-import React from 'react';
+﻿import React from 'react';
 import Link from 'next/link';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import RanksShowcase from '../components/RanksShowcase';
+import FramesAndShopShowcase from '../components/FramesAndShopShowcase';
 import TelemetrySimulator from '../components/TelemetrySimulator';
 import VideoShowcase from '../components/VideoShowcase';
 import FaqSection from '../components/FaqSection';
 import DownloadHub from '../components/DownloadHub';
-import { Download, Shield, Sparkles, Activity, Layers, Smartphone, EyeOff, Utensils } from 'lucide-react';
+import { Download, Shield, Sparkles, Activity, Layers, Smartphone, EyeOff, Utensils, Coins, CalendarCheck } from 'lucide-react';
 
 export default function HomePage() {
   return (
@@ -157,6 +158,9 @@ export default function HomePage() {
         {/* The Nine Ranks Section */}
         <RanksShowcase />
 
+        {/* Frames & Store Progression Showcase */}
+        <FramesAndShopShowcase />
+
         {/* Bento Grid Features ("Everything Around The Workout") */}
         <section className="features-section" id="features">
           <div className="container">
@@ -168,7 +172,7 @@ export default function HomePage() {
               </div>
               <h2 className="section-title">Everything around the workout.</h2>
               <p className="section-subtitle">
-                TrueRep combines intelligent AI workout vision with offline nutrition tracking, streak accountability, and zero cloud dependency.
+                TrueRep combines intelligent AI workout vision with structured daily splits, offline nutrition tracking, streak accountability, and cosmetic rewards.
               </p>
             </div>
 
@@ -203,6 +207,46 @@ export default function HomePage() {
                   </div>
                   <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', color: '#F59E0B' }}>
                     ▲ &ldquo;Push knees outward on ascent&rdquo;
+                  </div>
+                </div>
+              </div>
+
+              {/* Bento: Daily Splits & Unified History */}
+              <div className="bento-card bento-card-6">
+                <div>
+                  <span className="card-tag">Daily Routines</span>
+                  <h3 className="bento-card-title">Structured Splits &amp; Unified Logging</h3>
+                  <p className="bento-card-desc">
+                    Follow target workout splits (Chest, Legs, Back, Arms). Completed days update with checkmark badges and consolidate into a single clean session log in your history.
+                  </p>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginTop: '1rem', padding: '1rem', background: 'var(--bg-surface-elevated)', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-subtle)' }}>
+                  <div style={{ width: '38px', height: '38px', borderRadius: '50%', background: 'rgba(16, 185, 129, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-lime)', flexShrink: 0 }}>
+                    <CalendarCheck size={20} />
+                  </div>
+                  <div>
+                    <div style={{ fontSize: '0.9rem', fontWeight: 800, color: 'var(--text-main)' }}>Today&apos;s Workout Completed ✓</div>
+                    <div style={{ fontSize: '0.78rem', color: 'var(--text-secondary)' }}>Chest &amp; Triceps Split · Unified Entry Logged</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bento: Coin Economy & In-App Shop */}
+              <div className="bento-card bento-card-6">
+                <div>
+                  <span className="card-tag">Workout Economy</span>
+                  <h3 className="bento-card-title">Coins on Every Workout</h3>
+                  <p className="bento-card-desc">
+                    Earn coins on every single session, not just on level-ups. Stack active 2x boosters and spend your earnings in the shop on custom avatar frames.
+                  </p>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginTop: '1rem', padding: '1rem', background: 'var(--bg-surface-elevated)', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-subtle)' }}>
+                  <div style={{ width: '38px', height: '38px', borderRadius: '50%', background: 'rgba(245, 158, 11, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#F59E0B', flexShrink: 0 }}>
+                    <Coins size={20} />
+                  </div>
+                  <div>
+                    <div style={{ fontSize: '0.9rem', fontWeight: 800, color: 'var(--text-main)' }}>+25 Coins Base Reward</div>
+                    <div style={{ fontSize: '0.78rem', color: 'var(--text-secondary)' }}>2x Active Multipliers · Profile Frames Unlocked</div>
                   </div>
                 </div>
               </div>

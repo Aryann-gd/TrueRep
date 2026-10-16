@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import { ChevronDown, HelpCircle } from 'lucide-react';
@@ -11,6 +11,14 @@ const FAQS = [
   {
     q: 'Is TrueRep free?',
     a: 'Yes, TrueRep is completely free with optional rewarded ads for streak repair. No subscriptions, no paywalls, no premium features locked behind payment.'
+  },
+  {
+    q: 'How do I earn coins and unlock avatar frames?',
+    a: 'You earn coins automatically upon completing any workout session (with 2x booster multipliers and level-up bonuses). You can use your coins in the in-app shop to unlock custom animated frames like Flame Titan, Lightning Kinetic, Galaxy Nebula, and Royal Crown, and equip or switch them anytime in your Profile or the Shop.'
+  },
+  {
+    q: 'How do daily workout splits and session history work?',
+    a: "TrueRep features structured daily splits (Chest, Legs, Back, Arms). When you finish all scheduled exercises for the day, your dashboard marks today's workout as completed with a green checkmark, and your entire session logs into your workout history as a single unified entry instead of scattered individual logs."
   },
   {
     q: 'Does TrueRep upload my workout videos?',
