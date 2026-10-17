@@ -1,7 +1,7 @@
-﻿'use client';
+'use client';
 
 import React, { useState } from 'react';
-import { Sparkles, Coins, Check, ArrowRight, Shield, Award, Flame, Zap, Crown, Compass, Eye } from 'lucide-react';
+import { Sparkles, Coins, Check, Award, Flame, Zap, Crown, Compass, Eye } from 'lucide-react';
 
 const FRAMES = [
   {
@@ -91,7 +91,7 @@ export default function FramesAndShopShowcase() {
   const isEquipped = equippedId === selectedFrame.id;
 
   return (
-    <section className="shop-frames-section" id="frames" style={{ padding: '6rem 0', position: 'relative' }}>
+    <section className="shop-frames-section" id="frames">
       <div className="container">
         
         {/* Section Header */}
@@ -107,22 +107,11 @@ export default function FramesAndShopShowcase() {
         </div>
 
         {/* Interactive Frame Stage */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-          gap: '2rem',
-          alignItems: 'center',
-          background: 'rgba(17, 20, 28, 0.65)',
-          border: '1px solid var(--border-card)',
-          borderRadius: 'var(--radius-xl, 24px)',
-          padding: 'clamp(1.5rem, 4vw, 3rem)',
-          backdropFilter: 'blur(16px)',
-          boxShadow: '0 20px 50px rgba(0, 0, 0, 0.5)'
-        }}>
+        <div className="frames-stage">
 
           {/* Left Column: Interactive Selector */}
-          <div>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.25rem' }}>
+          <div className="frames-selector-col">
+            <div className="frames-selector-header">
               <span style={{ fontSize: '0.82rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--text-sub)' }}>
                 Select Frame to Preview
               </span>
@@ -132,7 +121,7 @@ export default function FramesAndShopShowcase() {
               </div>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+            <div className="frames-list">
               {FRAMES.map((frame) => {
                 const isSelected = selectedFrame.id === frame.id;
                 const FrameIcon = frame.accentIcon;
@@ -141,37 +130,19 @@ export default function FramesAndShopShowcase() {
                     key={frame.id}
                     type="button"
                     onClick={() => setSelectedFrame(frame)}
+                    className="frame-select-btn"
                     style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      padding: '0.9rem 1.15rem',
                       background: isSelected ? 'rgba(255, 255, 255, 0.06)' : 'rgba(255, 255, 255, 0.02)',
                       border: isSelected ? `1.5px solid ${frame.tagColor}` : '1px solid var(--border-subtle)',
-                      borderRadius: 'var(--radius-md, 12px)',
-                      color: 'var(--text-main)',
-                      cursor: 'pointer',
-                      transition: 'all 0.2s ease',
-                      textAlign: 'left',
                       boxShadow: isSelected ? `0 4px 20px ${frame.glowColor}` : 'none',
                     }}
                   >
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.9rem' }}>
-                      <div style={{
-                        width: '36px',
-                        height: '36px',
-                        borderRadius: '50%',
-                        background: frame.gradient,
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        color: '#FFFFFF',
-                        flexShrink: 0
-                      }}>
+                    <div className="frame-btn-left">
+                      <div className="frame-btn-icon" style={{ background: frame.gradient }}>
                         <FrameIcon size={18} />
                       </div>
-                      <div>
-                        <div style={{ fontWeight: 800, fontSize: '0.98rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                      <div className="frame-btn-info">
+                        <div className="frame-btn-title-row">
                           <span>{frame.name}</span>
                           {equippedId === frame.id && (
                             <span style={{ fontSize: '0.65rem', padding: '2px 6px', background: 'rgba(16, 185, 129, 0.2)', color: 'var(--accent-lime)', borderRadius: '4px', fontWeight: 800 }}>
@@ -179,21 +150,19 @@ export default function FramesAndShopShowcase() {
                             </span>
                           )}
                         </div>
-                        <div style={{ fontSize: '0.78rem', color: 'var(--text-secondary)', marginTop: '2px' }}>
+                        <div className="frame-btn-cost">
                           {frame.cost}
                         </div>
                       </div>
                     </div>
 
-                    <span style={{
-                      fontSize: '0.72rem',
-                      fontWeight: 700,
-                      padding: '3px 8px',
-                      borderRadius: '999px',
-                      background: 'rgba(255, 255, 255, 0.05)',
-                      color: frame.tagColor,
-                      border: `1px solid ${frame.tagColor}33`
-                    }}>
+                    <span
+                      className="frame-btn-tag"
+                      style={{
+                        color: frame.tagColor,
+                        border: `1px solid ${frame.tagColor}33`,
+                      }}
+                    >
                       {frame.tag}
                     </span>
                   </button>
@@ -203,18 +172,7 @@ export default function FramesAndShopShowcase() {
           </div>
 
           {/* Right Column: Live Avatar Preview Card */}
-          <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            background: 'rgba(0, 0, 0, 0.45)',
-            border: '1px solid var(--border-subtle)',
-            borderRadius: 'var(--radius-lg, 16px)',
-            padding: '2.5rem 1.5rem',
-            position: 'relative',
-            overflow: 'hidden'
-          }}>
+          <div className="frames-preview-card">
             
             {/* Ambient Background Glow for Frame */}
             <div style={{
@@ -226,8 +184,8 @@ export default function FramesAndShopShowcase() {
               filter: 'blur(70px)',
               pointerEvents: 'none',
               opacity: 0.6,
-              transition: 'background 0.4s ease'
-            }}></div>
+              transition: 'background 0.4s ease',
+            }} />
 
             {/* Frame Status Badge */}
             <div style={{
@@ -243,36 +201,20 @@ export default function FramesAndShopShowcase() {
               fontWeight: 800,
               letterSpacing: '0.06em',
               marginBottom: '1.75rem',
-              zIndex: 1
+              zIndex: 1,
             }}>
               <span>{selectedFrame.badgeText}</span>
             </div>
 
-            {/* Avatar with Animated Border */}
-            <div style={{
-              position: 'relative',
-              width: '140px',
-              height: '140px',
-              borderRadius: '50%',
-              padding: '6px',
-              background: selectedFrame.gradient,
-              boxShadow: `0 0 35px ${selectedFrame.glowColor}`,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              transition: 'all 0.4s ease',
-              zIndex: 1
-            }}>
-              <div style={{
-                width: '100%',
-                height: '100%',
-                borderRadius: '50%',
-                background: '#090B0E',
-                overflow: 'hidden',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}>
+            {/* Avatar with Halo Ring */}
+            <div
+              className="frame-avatar-wrapper"
+              style={{
+                background: selectedFrame.gradient,
+                boxShadow: `0 0 35px ${selectedFrame.glowColor}`,
+              }}
+            >
+              <div className="frame-avatar-inner">
                 <img 
                   src="/assets/mascot_transparent_512.png" 
                   alt="TrueRep Avatar Preview" 
@@ -293,18 +235,18 @@ export default function FramesAndShopShowcase() {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: 'var(--accent-lime)'
+                color: 'var(--accent-lime)',
               }}>
                 <Check size={14} strokeWidth={3} />
               </div>
             </div>
 
             {/* Frame Metadata */}
-            <div style={{ textAlign: 'center', marginTop: '1.5rem', zIndex: 1, maxWidth: '360px' }}>
-              <h3 style={{ fontSize: '1.35rem', fontWeight: 900, marginBottom: '0.35rem', color: 'var(--text-main)' }}>
+            <div className="frame-preview-meta">
+              <h3 className="frame-preview-title">
                 {selectedFrame.name}
               </h3>
-              <p style={{ fontSize: '0.88rem', color: 'var(--text-secondary)', lineHeight: 1.5, marginBottom: '1.25rem' }}>
+              <p className="frame-preview-desc">
                 {selectedFrame.description}
               </p>
 
@@ -330,21 +272,9 @@ export default function FramesAndShopShowcase() {
             </div>
 
             {/* Economy Guarantee Bar */}
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              marginTop: '1.25rem',
-              padding: '6px 14px',
-              borderRadius: 'var(--radius-sm, 8px)',
-              background: 'rgba(255, 255, 255, 0.03)',
-              border: '1px solid var(--border-subtle)',
-              fontSize: '0.78rem',
-              color: 'var(--text-secondary)',
-              zIndex: 1
-            }}>
-              <Coins size={14} style={{ color: '#FBBF24' }} />
-              <span>Earn <strong>+25 Coins</strong> per workout session Â· 2x Booster compatible</span>
+            <div className="frame-coins-bar">
+              <Coins size={14} style={{ color: '#FBBF24', flexShrink: 0 }} />
+              <span>Earn <strong>+25 Coins</strong> per workout session · 2x Booster compatible</span>
             </div>
 
           </div>
@@ -352,22 +282,9 @@ export default function FramesAndShopShowcase() {
         </div>
 
         {/* Feature Highlights Grid Below */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-          gap: '1.25rem',
-          marginTop: '2rem'
-        }}>
+        <div className="frames-highlights-grid">
           
-          <div style={{
-            background: 'var(--bg-surface-card)',
-            border: '1px solid var(--border-subtle)',
-            borderRadius: 'var(--radius-lg, 16px)',
-            padding: '1.5rem',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '0.5rem'
-          }}>
+          <div className="frames-highlight-card">
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'var(--primary)', fontWeight: 800, fontSize: '0.9rem' }}>
               <Coins size={18} />
               <span>GUARANTEED WORKOUT REWARDS</span>
@@ -380,15 +297,7 @@ export default function FramesAndShopShowcase() {
             </p>
           </div>
 
-          <div style={{
-            background: 'var(--bg-surface-card)',
-            border: '1px solid var(--border-subtle)',
-            borderRadius: 'var(--radius-lg, 16px)',
-            padding: '1.5rem',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '0.5rem'
-          }}>
+          <div className="frames-highlight-card">
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'var(--accent-lime)', fontWeight: 800, fontSize: '0.9rem' }}>
               <Check size={18} />
               <span>STRUCTURED DAILY SPLITS</span>
@@ -401,15 +310,7 @@ export default function FramesAndShopShowcase() {
             </p>
           </div>
 
-          <div style={{
-            background: 'var(--bg-surface-card)',
-            border: '1px solid var(--border-subtle)',
-            borderRadius: 'var(--radius-lg, 16px)',
-            padding: '1.5rem',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '0.5rem'
-          }}>
+          <div className="frames-highlight-card">
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: '#F59E0B', fontWeight: 800, fontSize: '0.9rem' }}>
               <Award size={18} />
               <span>UNIFIED SESSION HISTORY</span>
